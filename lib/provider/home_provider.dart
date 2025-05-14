@@ -86,6 +86,12 @@ class HomeProvider extends BaseProvider {
     notifyListeners();
   }
 
+  // set focused day
+  void setFocusedDay(DateTime day) {
+    focusedDay = day;
+    notifyListeners();
+  }
+
 // cancel booking request form and reset selected time slot
   cancelBooking() {
     selectedTime = null;
@@ -104,5 +110,22 @@ class HomeProvider extends BaseProvider {
     selectedDay = null;
     selectedTime = null;
     focusedDay = DateTime.now();
+  }
+
+// Method to get adjust month based on date
+  DateTime getAdjustedMonth(DateTime date, int offset) {
+    int year = date.year;
+    int month = date.month + offset;
+
+    while (month < 1) {
+      month += 12;
+      year -= 1;
+    }
+    while (month > 12) {
+      month -= 12;
+      year += 1;
+    }
+
+    return DateTime(year, month);
   }
 }
