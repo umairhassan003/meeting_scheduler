@@ -21,6 +21,6 @@ class Utilities {
 
 // show toast in app
   static Future<void> showToast(String message) async {
-    // TODO: create common method for showing toast in the app
+    await showToast(message);
   }
 }

@@ -79,6 +79,7 @@ class ConfirmBookingCardWidget extends StatelessWidget {
                         ElevatedButton(
                           onPressed: () {
                             // confirm action
+                            provider.confirmBooking();
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.green,
@@ -95,6 +96,7 @@ class ConfirmBookingCardWidget extends StatelessWidget {
                         OutlinedButton(
                           onPressed: () {
                             // cancel action
+                            provider.cancelBooking();
                           },
                           child: Text(Resources.cancel,
                               style: TextStyle(

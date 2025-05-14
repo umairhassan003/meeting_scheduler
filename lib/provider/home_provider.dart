@@ -85,4 +85,24 @@ class HomeProvider extends BaseProvider {
     selectedTime = time;
     notifyListeners();
   }
+
+// cancel booking request form and reset selected time slot
+  cancelBooking() {
+    selectedTime = null;
+    notifyListeners();
+  }
+
+// confirm Booking
+  confirmBooking() {
+    resetData();
+    notifyListeners();
+  }
+
+// reset booking form
+  resetData() {
+    selectedDuration = null;
+    selectedDay = null;
+    selectedTime = null;
+    focusedDay = DateTime.now();
+  }
 }
