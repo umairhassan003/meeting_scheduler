@@ -17,6 +17,9 @@ class HomeProvider extends BaseProvider {
 
     // adding durations data to UI
     durations = generateDurationData();
+
+    // current time zone of user
+    selectedTimeZone = Utilities.getCurrentTimeZoneLabel();
   }
 
   // 1. Duration
@@ -30,6 +33,9 @@ class HomeProvider extends BaseProvider {
   // 3. Time
   List<String> timeSlots = [];
   String? selectedTime;
+
+  // Time Zone selection
+  String selectedTimeZone = "";
 
 // generate list of time slots
   List<String> generateTimeSlots({
@@ -127,5 +133,11 @@ class HomeProvider extends BaseProvider {
     }
 
     return DateTime(year, month);
+  }
+
+// update selected time zone
+  void setSelectedTimeZone(String tz) {
+    selectedTimeZone = tz;
+    notifyListeners();
   }
 }

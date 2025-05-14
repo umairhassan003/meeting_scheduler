@@ -3,10 +3,13 @@
  * Copyrights - All rights reserved
  */
 
+import 'package:timezone/data/latest.dart' as tz;
 import 'package:meeting_scheduler/util/include.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  tz.initializeTimeZones();
+
   runApp(
     MultiProvider(
       providers: [

@@ -98,6 +98,26 @@ class DurationSelectionWidget extends StatelessWidget {
                     SizedBox(height: 12.h),
                     // Bottom EST time zone
                     Center(
+                        child: GestureDetector(
+                      onTap: () async {
+                        final timezones = Utilities.getFormattedTimezones();
+                        final result = await showModalBottomSheet<String>(
+                          context: context,
+                          builder: (ctx) => ListView.builder(
+                            itemCount: timezones.length,
+                            itemBuilder: (ctx, i) {
+                              return ListTile(
+                                title: Text(timezones[i]),
+                                onTap: () => Navigator.pop(ctx, timezones[i]),
+                              );
+                            },
+                          ),
+                        );
+
+                        if (result != null) {
+                          provider.setSelectedTimeZone(result);
+                        }
+                      },
                       child: Container(
                         padding: EdgeInsets.symmetric(
                             horizontal: 15.w, vertical: 8.h),
@@ -106,7 +126,7 @@ class DurationSelectionWidget extends StatelessWidget {
                           borderRadius: BorderRadius.circular(30.r),
                         ),
                         child: Text(
-                          Resources.estTimeZone,
+                          provider.selectedTimeZone,
                           style: TextStyle(
                             fontSize: 12.sp,
                             fontWeight: FontWeight.w700,
@@ -114,7 +134,7 @@ class DurationSelectionWidget extends StatelessWidget {
                           ),
                         ),
                       ),
-                    ),
+                    )),
                     SizedBox(height: 12.h),
                   ],
                 ),

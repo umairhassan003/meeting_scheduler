@@ -36,3 +36,6 @@ export 'package:dotted_border/dotted_border.dart';
 export 'package:meeting_scheduler/util/assets.dart';
 export 'package:meeting_scheduler/util/resources.dart';
 export 'package:table_calendar/table_calendar.dart';
+export 'package:timezone/data/latest.dart';
+
+export 'package:meeting_scheduler/util/utilities.dart';
