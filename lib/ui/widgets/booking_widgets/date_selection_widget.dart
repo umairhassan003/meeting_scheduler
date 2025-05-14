@@ -91,12 +91,12 @@ class DateSelectionWidget extends StatelessWidget {
                     headerTitleBuilder: (context, day) {
                       final now = DateTime.now();
                       final maxDay = now.add(const Duration(days: 90));
-                      final title = DateFormat.yMMMM().format(day);
+                      final title = DateFormat.MMMM().format(day);
 
                       return Center(
                         child: Container(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 8.w, vertical: 6.h),
+                              horizontal: 10.w, vertical: 6.h),
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(30.r),
@@ -124,18 +124,18 @@ class DateSelectionWidget extends StatelessWidget {
                                       size: 20.r, color: Colors.black),
                                 ),
                               ),
-                              SizedBox(width: 6.w),
+                              SizedBox(width: 20.w),
 
                               // Title
                               Text(
-                                title,
+                                title.toUpperCase(),
                                 style: TextStyle(
                                   fontSize: 16.sp,
                                   fontWeight: FontWeight.w500,
                                   color: Colors.black,
                                 ),
                               ),
-                              SizedBox(width: 6.w),
+                              SizedBox(width: 20.w),
 
                               // Right Arrow
                               GestureDetector(
